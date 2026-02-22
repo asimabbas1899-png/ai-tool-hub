@@ -283,7 +283,7 @@ accentColor: theme === "dark" ? "#ff979d" : "#ff5d6a"
 <div style={{ fontSize: 12, color: colors.sub }}>{selected.popularity}%</div>
 </div>
 <input
-type="range"
+className="range"
 min={0}
 max={100}
 value={selected.popularity}
