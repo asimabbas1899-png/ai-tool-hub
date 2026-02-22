@@ -259,7 +259,8 @@ color: colors.text
 <div style={{ fontSize: 12, color: colors.sub }}>{selected.usefulness}%</div>
 </div>
 <input
-className="range"
+type="range"
+className="range usefulness"
 min={0}
 max={100}
 value={selected.usefulness}
@@ -278,7 +279,8 @@ prev.map((t) => (t.id === selected.id ? { ...t, usefulness: v } : t))
 <div style={{ fontSize: 12, color: colors.sub }}>{selected.popularity}%</div>
 </div>
 <input
-className="range"
+type="range"
+className="range popularity"
 min={0}
 max={100}
 value={selected.popularity}
