@@ -31,6 +31,7 @@ const [tools, setTools] = useState<Tool[]>([]);
 const [isModalOpen, setIsModalOpen] = useState(false);
 const [newUrl, setNewUrl] = useState("");
 const [error, setError] = useState<string | null>(null);
+const [selectedId, setSelectedId] = useState<string | null>(null);
 
 useEffect(() => {
 const raw = localStorage.getItem(STORAGE_KEY);
