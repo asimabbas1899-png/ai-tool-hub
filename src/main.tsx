@@ -32,6 +32,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 const [newUrl, setNewUrl] = useState("");
 const [error, setError] = useState<string | null>(null);
 const [selectedId, setSelectedId] = useState<string | null>(null);
+const [saveState, setSaveState] = useState<"saved" | "saving">("saved");
 
 useEffect(() => {
 const raw = localStorage.getItem(STORAGE_KEY);
@@ -40,6 +41,9 @@ if (raw) setTools(JSON.parse(raw));
 
 useEffect(() => {
 localStorage.setItem(STORAGE_KEY, JSON.stringify(tools));
+setSaveState("saving");
+const t = setTimeout(() => setSaveState("saved"), 1000);
+return () => clearTimeout(t);
 }, [tools]);
 
 useEffect(() => {
@@ -139,7 +143,9 @@ fontWeight: 800
 >
 Back
 </button>
-<div style={{ fontSize: 12, color: colors.sub, marginTop: 10 }}>Saved</div>
+<div style={{ fontSize: 12, color: colors.sub, marginTop: 10 }}>
+{saveState === "saving" ? "Saving..." : "Saved"}
+</div>
 <div style={{ height: 12 }} />
 
 <div style={{ fontWeight: 900, fontSize: 18 }}>
