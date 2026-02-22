@@ -63,6 +63,10 @@ t.url.toLowerCase().includes(q)
 });
 }, [tools, query]);
 
+const selected = useMemo(() => {
+return tools.find((t) => t.id === selectedId) || null;
+}, [tools, selectedId]);
+
 function addTool() {
 setError(null);
 const normalized = normalizeUrl(newUrl);
