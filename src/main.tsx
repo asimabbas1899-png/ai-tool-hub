@@ -293,6 +293,7 @@ No tools yet. Tap “Add link” to start.
 {filtered.map((t) => (
 <div
 key={t.id}
+onClick={() => setSelectedId(t.id)}
 style={{
 background: colors.card,
 border: `1px solid ${colors.border}`,
