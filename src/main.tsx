@@ -15,6 +15,11 @@ popularity: number;
 };
 
 const STORAGE_KEY = "ai-tool-hub:v1";
+import { DEMO_SEED } from "./demoSeed";
+
+const DEMO_MODE = true;
+const DEMO_LIMIT_TOTAL = 5;
+const BUY_URL = ""; // add your Gumroad link later
 
 function normalizeUrl(input: string) {
 return input
