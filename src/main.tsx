@@ -259,7 +259,7 @@ color: colors.text
 <div style={{ fontSize: 12, color: colors.sub }}>{selected.usefulness}%</div>
 </div>
 <input
-type="range"
+className="range"
 min={0}
 max={100}
 value={selected.usefulness}
@@ -268,11 +268,6 @@ const v = Number(e.target.value);
 setTools((prev) =>
 prev.map((t) => (t.id === selected.id ? { ...t, usefulness: v } : t))
 );
-}}
-style={{
-width: "100%",
-marginTop: 6,
-accentColor: theme === "dark" ? "#ff979d" : "#ff5d6a"
 }}
 />
 </div>
@@ -292,11 +287,6 @@ const v = Number(e.target.value);
 setTools((prev) =>
 prev.map((t) => (t.id === selected.id ? { ...t, popularity: v } : t))
 );
-}}
-style={{
-width: "100%",
-marginTop: 6,
-accentColor: theme === "dark" ? "#a78bfa" : "#7c3aed"
 }}
 />
 </div>
