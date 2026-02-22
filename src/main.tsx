@@ -194,6 +194,106 @@ background: theme === "dark" ? "#0f1118" : "#fff",
 color: colors.text
 }}
 />
+  <div style={{ height: 12 }} />
+
+<div style={{ fontSize: 12, color: colors.sub }}>Category</div>
+<input
+value={selected.category}
+onChange={(e) => {
+const v = e.target.value;
+setTools((prev) =>
+prev.map((t) => (t.id === selected.id ? { ...t, category: v } : t))
+);
+}}
+placeholder="e.g. Writing"
+style={{
+width: "100%",
+padding: "12px 12px",
+borderRadius: 12,
+border: `1px solid ${colors.border}`,
+outline: "none",
+background: theme === "dark" ? "#0f1118" : "#fff",
+color: colors.text
+}}
+/>
+
+<div style={{ height: 12 }} />
+
+<div style={{ fontSize: 12, color: colors.sub }}>Tags (comma separated)</div>
+<input
+value={selected.tags.join(", ")}
+onChange={(e) => {
+const tags = e.target.value
+.split(",")
+.map((x) => x.trim())
+.filter(Boolean);
+setTools((prev) =>
+prev.map((t) => (t.id === selected.id ? { ...t, tags } : t))
+);
+}}
+placeholder="e.g. SEO, Email, Copywriting"
+style={{
+width: "100%",
+padding: "12px 12px",
+borderRadius: 12,
+border: `1px solid ${colors.border}`,
+outline: "none",
+background: theme === "dark" ? "#0f1118" : "#fff",
+color: colors.text
+}}
+/>
+
+<div style={{ height: 14 }} />
+
+<div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+<div style={{ flex: 1, minWidth: 220 }}>
+<div style={{ display: "flex", justifyContent: "space-between" }}>
+<div style={{ fontSize: 12, color: colors.sub }}>Usefulness</div>
+<div style={{ fontSize: 12, color: colors.sub }}>{selected.usefulness}%</div>
+</div>
+<input
+type="range"
+min={0}
+max={100}
+value={selected.usefulness}
+onChange={(e) => {
+const v = Number(e.target.value);
+setTools((prev) =>
+prev.map((t) => (t.id === selected.id ? { ...t, usefulness: v } : t))
+);
+}}
+style={{
+width: "100%",
+marginTop: 6,
+accentColor: theme === "dark" ? "#ff979d" : "#ff5d6a"
+}}
+/>
+</div>
+
+<div style={{ flex: 1, minWidth: 220 }}>
+<div style={{ display: "flex", justifyContent: "space-between" }}>
+<div style={{ fontSize: 12, color: colors.sub }}>Popularity</div>
+<div style={{ fontSize: 12, color: colors.sub }}>{selected.popularity}%</div>
+</div>
+<input
+type="range"
+min={0}
+max={100}
+value={selected.popularity}
+onChange={(e) => {
+const v = Number(e.target.value);
+setTools((prev) =>
+prev.map((t) => (t.id === selected.id ? { ...t, popularity: v } : t))
+);
+}}
+style={{
+width: "100%",
+marginTop: 6,
+accentColor: theme === "dark" ? "#a78bfa" : "#7c3aed"
+}}
+/>
+</div>
+</div>
 </div>
 </div>
 );
