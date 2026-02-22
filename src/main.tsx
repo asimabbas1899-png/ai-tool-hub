@@ -139,7 +139,7 @@ fontWeight: 800
 >
 Back
 </button>
-
+<div style={{ fontSize: 12, color: colors.sub, marginTop: 10 }}>Saved</div>
 <div style={{ height: 12 }} />
 
 <div style={{ fontWeight: 900, fontSize: 18 }}>
