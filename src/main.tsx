@@ -121,6 +121,84 @@ yellowText: "#92400e",
 btn: "#ff5d6a"
 };
 
+if (selected) {
+return (
+<div style={{ minHeight: "100vh", background: colors.bg, color: colors.text }}>
+<div style={{ maxWidth: 980, margin: "0 auto", padding: 16 }}>
+<button
+onClick={() => setSelectedId(null)}
+style={{
+border: `1px solid ${colors.border}`,
+background: "transparent",
+color: colors.text,
+padding: "8px 10px",
+borderRadius: 10,
+cursor: "pointer",
+fontWeight: 800
+}}
+>
+Back
+</button>
+
+<div style={{ height: 12 }} />
+
+<div style={{ fontWeight: 900, fontSize: 18 }}>
+{selected.name || "Untitled"}
+</div>
+
+<div style={{ marginTop: 8, fontSize: 13, color: colors.sub, wordBreak: "break-word" }}>
+{selected.url}
+</div>
+
+<div style={{ height: 14 }} />
+
+<div style={{ fontSize: 12, color: colors.sub }}>Name</div>
+<input
+value={selected.name}
+onChange={(e) => {
+const v = e.target.value;
+setTools((prev) =>
+prev.map((t) => (t.id === selected.id ? { ...t, name: v } : t))
+);
+}}
+style={{
+width: "100%",
+padding: "12px 12px",
+borderRadius: 12,
+border: `1px solid ${colors.border}`,
+outline: "none",
+background: theme === "dark" ? "#0f1118" : "#fff",
+color: colors.text
+}}
+/>
+
+<div style={{ height: 12 }} />
+
+<div style={{ fontSize: 12, color: colors.sub }}>Description</div>
+<textarea
+value={selected.description}
+onChange={(e) => {
+const v = e.target.value;
+setTools((prev) =>
+prev.map((t) => (t.id === selected.id ? { ...t, description: v } : t))
+);
+}}
+rows={6}
+style={{
+width: "100%",
+padding: "12px 12px",
+borderRadius: 12,
+border: `1px solid ${colors.border}`,
+outline: "none",
+background: theme === "dark" ? "#0f1118" : "#fff",
+color: colors.text
+}}
+/>
+</div>
+</div>
+);
+}
+
 return (
 <div style={{ minHeight: "100vh", background: colors.bg, color: colors.text }}>
 <div style={{ maxWidth: 980, margin: "0 auto", padding: 16 }}>
